@@ -1,0 +1,27 @@
++----------------+           +----------------+         +----------------+
+|     User       |1--------0..*|     Place     |1-------0..*|    Review   |
++----------------+           +----------------+         +----------------+
+| +id: UUID      |           | +id: UUID      |         | +id: UUID      |
+| +email: String |           | +name: String  |         | +text: String  |
+| +password: String|         | +description: String|    | +place_id: UUID|
+| +first_name: String|       | +number_of_rooms: int|   | +user_id: UUID |
+| +last_name: String |       | +number_of_bathrooms: int|+----------------+
++----------------+           | +max_guest: int|        |
+                              | +price_by_night: float |0..*       0..*
+                              | +owner_id: UUID        |<----------->
+                              +------------------------+           +----------------+
+                                                                      |    Amenity   |
+                                                                      +----------------+
+                                                                      | +id: UUID      |
+                                                                      | +name: String  |
+                                                                      +----------------+
+                              
+  +----------------+           +----------------+     
+  |   Country      |1--------0..*|     City      |1-------0..*|    Place
+  +----------------+           +----------------+         +----------------+
+  | +id: UUID      |           | +id: UUID      |         | +id: UUID      |
+  | +name: String  |           | +name: String  |         | +name: String  |
+  +----------------+           | +country_id: UUID|       | +description: String|
+                              +------------------------+   | +number_of_rooms: int|
+                             
+
